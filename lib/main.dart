@@ -9,6 +9,9 @@ import 'package:social_app/shared/network/local/shared_preferences.dart';
 import 'package:social_app/shared/network/remote/dio_remote.dart';
 
 import 'bloc_observer.dart';
+import 'layout/cubit/cubit.dart';
+import 'layout/cubit/social_states.dart';
+import 'layout/social_layout.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,
@@ -73,7 +76,7 @@ class MyApp extends StatelessWidget {
           ..getUserData()
           ..getPosts();
       },
-      child: BlocConsumer<AppCubit, AppState>(
+      child: BlocConsumer<SocialCubit, SocialStates>(
         listener: (BuildContext context, state) {},
         builder: (BuildContext context, Object? state) {
           return MaterialApp(

@@ -49,8 +49,6 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   Widget myWidget;
-  bool? isDark = CacheHelper.getData('isDark') ?? false;
-  bool? finishedBoarding = CacheHelper.getData('boarding') ?? false;
   token = CacheHelper.getData('token');
   uId = CacheHelper.getData('uId');
   if (uId != null) {
@@ -59,24 +57,31 @@ void main() async {
     myWidget = SocialLoginScreen();
   }
 
-  runApp(MyApp(isDark, myWidget));
+  runApp(MyApp(myWidget));
 }
 
 class MyApp extends StatelessWidget {
-  bool? isDark;
-
-  // bool? finishedBoarding;
   Widget myWidget;
 
-  MyApp(this.isDark, this.myWidget);
+  MyApp( this.myWidget);
 
   @override
   Widget build(BuildContext context) {
-
+    return BlocProvider(
+      create: (BuildContext context) {
+        return SocialCubit()
+          ..getUserData()
+          ..getPosts();
+      },
+      child: BlocConsumer<AppCubit, AppState>(
+        listener: (BuildContext context, state) {},
+        builder: (BuildContext context, Object? state) {
           return MaterialApp(
               debugShowCheckedModeBanner: false,
               home: myWidget
               );
-
+        },
+      ),
+    );
   }
 }

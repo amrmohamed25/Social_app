@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "369244104130",
+    "project_id": "udemy-course-c0c58",
+    "storage_bucket": "udemy-course-c0c58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369244104130:android:48b7a5361d35c172a8225b",
+        "android_client_info": {
+          "package_name": "com.example.abdullah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369244104130-8382754ao5aei6gks6l6ig9fh4tec358.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.abdullah",
+            "certificate_hash": "65b499a8d670ab4e68f819013007e4636787b27e"
+          }
+        },
+        {
+          "client_id": "369244104130-nujo2dibastcl2srflkl3fmpov7civrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7VH7bbfWk0LfGcK2vb_rIKw4jeKxNUkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369244104130-nujo2dibastcl2srflkl3fmpov7civrq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "369244104130-be37kc3heds2qkkqr85l00rlf9jj5nmh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.abdullah"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369244104130:android:64ff27159d9bd660a8225b",
+        "android_client_info": {
+          "package_name": "com.example.social_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369244104130-r2kfinaaglb84l5nipaf6pggebm3b6df.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.social_app",
+            "certificate_hash": "65b499a8d670ab4e68f819013007e4636787b27e"
+          }
+        },
+        {
+          "client_id": "369244104130-nujo2dibastcl2srflkl3fmpov7civrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7VH7bbfWk0LfGcK2vb_rIKw4jeKxNUkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369244104130-nujo2dibastcl2srflkl3fmpov7civrq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "369244104130-be37kc3heds2qkkqr85l00rlf9jj5nmh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.abdullah"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

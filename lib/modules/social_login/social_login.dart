@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_app/layout/cubit/cubit.dart';
 import 'package:social_app/layout/social_layout.dart';
 import 'package:social_app/modules/social_register/social_register.dart';
 import 'package:social_app/shared/components/components.dart';
@@ -114,6 +115,8 @@ class SocialLoginScreen extends StatelessWidget {
               if(state is SocialLoginSuccessState){
                 CacheHelper.setData(key: 'uId', value: state.uId);
                 uId=state.uId;
+                SocialCubit.get(context).getUserData();
+                SocialCubit.get(context).getPosts();
                 navigateAndReplace(context, SocialLayout());
               }
             }));

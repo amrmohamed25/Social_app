@@ -7,6 +7,7 @@ import 'package:social_app/shared/components/components.dart';
 import 'package:social_app/shared/components/constants.dart';
 import 'package:social_app/shared/network/local/shared_preferences.dart';
 import 'package:social_app/shared/network/remote/dio_remote.dart';
+import 'package:social_app/shared/styles/themes.dart';
 
 import 'bloc_observer.dart';
 import 'layout/cubit/cubit.dart';
@@ -82,6 +83,7 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, Object? state) {
           return MaterialApp(
               debugShowCheckedModeBanner: false,
+              theme: lightTheme,
               home: myWidget
               );
         },

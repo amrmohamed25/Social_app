@@ -12,6 +12,7 @@ import 'package:social_app/models/social_model/chat_model.dart';
 import 'package:social_app/models/social_model/comment_model.dart';
 import 'package:social_app/models/social_model/post_model.dart';
 import 'package:social_app/models/social_model/user_model.dart';
+import 'package:social_app/modules/social_feed/social_feed.dart';
 import 'package:social_app/shared/components/constants.dart';
 
 class SocialCubit extends Cubit<SocialStates> {

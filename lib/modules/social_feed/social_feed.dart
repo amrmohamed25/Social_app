@@ -342,11 +342,6 @@ Widget buildPostItem(PostModel model, context, index) {
             SizedBox(
               height: 10,
             ),
-          // Container(
-          //   height: 1,
-          //   width: double.infinity,
-          //   color:Colors.grey,
-          // ),
           SizedBox(
             height: 10,
           ),

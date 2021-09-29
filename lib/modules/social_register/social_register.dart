@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_app/layout/social_layout.dart';
-import 'package:social_app/modules/social_register/social_register.dart';
 import 'package:social_app/shared/components/components.dart';
 import 'package:social_app/shared/components/constants.dart';
 import 'package:social_app/shared/network/local/shared_preferences.dart';
@@ -10,20 +9,21 @@ import 'package:social_app/shared/network/local/shared_preferences.dart';
 import 'cubit/cubit.dart';
 import 'cubit/social_states.dart';
 
-class SocialLoginScreen extends StatelessWidget {
+class SocialRegisterScreen extends StatelessWidget {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  var nameController = TextEditingController();
+  var phoneController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) {
-          return SocialLoginCubit();
+          return SocialRegisterCubit();
         },
-        child: BlocConsumer<SocialLoginCubit,SocialLoginStates>(
+        child: BlocConsumer<SocialRegisterCubit,SocialRegisterStates>(
             builder: (context, state) {
-              print(SocialLoginCubit.get(context).isPassword);
               return Scaffold(
                 appBar: AppBar(),
                 body: Center(
@@ -37,14 +37,28 @@ class SocialLoginScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Login',
+                              'Register',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText1!
                                   .copyWith(fontSize: 30),
                             ),
                             Text(
-                              'Login to communicate with your friends',
+                              'Register to communicate with your friends',
+                            ),
+                            defaultFormField(
+                                controller: nameController,
+                                label: 'Name',
+                                keyType: TextInputType.text,
+                                validate: (value) {
+                                  if (value.isEmpty) {
+                                    return 'Name is too short';
+                                  }
+                                  return null;
+                                },
+                                prefix: Icons.person,),
+                            SizedBox(
+                              height: 10,
                             ),
                             defaultFormField(
                                 controller: emailController,
@@ -71,34 +85,38 @@ class SocialLoginScreen extends StatelessWidget {
                                   return null;
                                 },
                                 function: () {
-                                  SocialLoginCubit.get(context).changeVisibility();
+                                  SocialRegisterCubit.get(context).changeVisibility();
                                 },
-                                isPassword: SocialLoginCubit.get(context).isPassword,
+                                isPassword: SocialRegisterCubit.get(context).isPassword,
                                 prefix: Icons.lock,
-                                suffix: SocialLoginCubit.get(context).icon),
+                                suffix: SocialRegisterCubit.get(context).icon),
                             SizedBox(
                               height: 10,
                             ),
-                            state is! SocialLoginLoadingState?
+                            defaultFormField(
+                                controller: phoneController,
+                                label: 'Phone',
+                                keyType: TextInputType.phone,
+                                validate: (value) {
+                                  if (value.isEmpty) {
+                                    return 'Phone is too short';
+                                  }
+                                  return null;
+                                },
+                                prefix: Icons.phone,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            state is! SocialRegisterLoadingState?
                             defaultButton(
-                              text: 'LOGIN',
+                              text: 'Register',
                               function: () {
                                 if (formKey.currentState!.validate()) {
-                                  SocialLoginCubit.get(context).userLogin(email: emailController.text, password: passwordController.text);
+                                  SocialRegisterCubit.get(context).userRegister(email: emailController.text, password: passwordController.text, name: nameController.text, phone: phoneController.text);
                                 }
                               },
                             ):Center(child:CircularProgressIndicator()),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('Don\'t have an account?'),
-                                TextButton(
-                                    onPressed: () {
-                                      navigateTo(context, SocialRegisterScreen());
-                                    },
-                                    child: Text('Register Now'))
-                              ],
-                            )
                           ],
                         ),
                       ),
@@ -108,12 +126,13 @@ class SocialLoginScreen extends StatelessWidget {
               );
             },
             listener: (context, state) {
-              if(state is SocialLoginErrorState){
+              if(state is SocialRegisterErrorState){
                 buildToast(message: state.error, state: ToastStates.ERROR);
               }
-              if(state is SocialLoginSuccessState){
+              if(state is SocialUserCreateSuccessState){
                 CacheHelper.setData(key: 'uId', value: state.uId);
                 uId=state.uId;
+                print('Here is your uid kido : $uId');
                 navigateAndReplace(context, SocialLayout());
               }
             }));

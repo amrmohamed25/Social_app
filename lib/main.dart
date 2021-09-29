@@ -12,6 +12,7 @@ import 'bloc_observer.dart';
 import 'layout/cubit/cubit.dart';
 import 'layout/cubit/social_states.dart';
 import 'layout/social_layout.dart';
+import 'modules/social_login/social_login.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,

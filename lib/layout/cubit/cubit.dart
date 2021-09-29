@@ -8,6 +8,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:social_app/layout/cubit/social_states.dart';
+import 'package:social_app/models/social_model/chat_model.dart';
+import 'package:social_app/models/social_model/comment_model.dart';
+import 'package:social_app/models/social_model/post_model.dart';
+import 'package:social_app/models/social_model/user_model.dart';
+import 'package:social_app/shared/components/constants.dart';
 
 class SocialCubit extends Cubit<SocialStates> {
   SocialCubit() : super(SocialInitialState());

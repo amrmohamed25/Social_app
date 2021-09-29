@@ -30,9 +30,6 @@ ThemeData darkTheme = ThemeData(
     unselectedItemColor: Colors.grey,
     elevation: 20.0,
   ),
-  // floatingActionButtonTheme: FloatingActionButtonThemeData(
-  //   backgroundColor: Colors.deepOrange,
-  // ),
   textTheme: TextTheme(
     bodyText1: TextStyle(
       fontSize: 20,
@@ -73,9 +70,6 @@ ThemeData lightTheme = ThemeData(
       selectedItemColor: defaultColor,
       type: BottomNavigationBarType.fixed,
       elevation: 20.0),
-  // floatingActionButtonTheme: FloatingActionButtonThemeData(
-  //   backgroundColor: Colors.deepOrange,
-  // ),
   textTheme: TextTheme(
     bodyText1: TextStyle(
       fontSize: 20,
